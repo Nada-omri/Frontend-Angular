@@ -1,0 +1,99 @@
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
+})
+export class SignupComponent {
+  signupForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.signupForm = this.fb.group({
+      username: ['', Validators.required],
+      Email: ['', Validators.required],
+      Adress: [''],
+      Phone: [''],
+      password: ['', Validators.required],
+      confirmpassword: ['', Validators.required]
+    });
+  }
+
+  passwordsDoNotMatch() {
+    const passwordControl = this.signupForm.get('password');
+    const confirmPasswordControl = this.signupForm.get('confirmpassword');
+    if(!(passwordControl &&
+      confirmPasswordControl)){
+        return false
+      }else{
+        return (
+          true
+        )}
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="contain">
+<h1 class="welcome">Welcome to Tech Trove</h1>
+<div  class="col-lg-5">
+    <div class="card">
+        <div class="card-header bg-info text-white">
+            <a routerLink="signup"> SignUp</a>/<a routerLink="signin"> SignIn</a>
+        </div>
+        <div class="card-body">
+            <form  [formGroup]="signupForm">
+                <div class="form-group">
+                    <label >User Name:</label>
+                    <input type="text" formControlName="username" class="form-control">
+                </div>
+                <div class="alert alert-danger" *ngIf="signupForm.controls['username'].invalid && (signupForm.controls['username'].touched || signupForm.controls['username'].dirty)">
+                    please put on your Username!
+                </div>
+                <div class="form-group">
+                    <label >Email:</label>
+                    <input type="text" formControlName="Email" class="form-control">
+                </div>
+                <div class="alert alert-danger" *ngIf="signupForm.controls['Email'].invalid && (signupForm.controls['Email'].touched || signupForm.controls['Email'].dirty)">
+                    please put on your Email!
+                </div>
+                <div class="form-group">
+                    <label >Adress:</label>
+                    <input type="text" formControlName="ref" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label >Password:</label>
+                    <input type="password" formControlName="password" class="form-control">
+                </div>
+                <div class="alert alert-danger"  *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].touched || signupForm.controls['password'].dirty)">
+                    Password is required!
+                </div>
+                <div class="form-group">
+                    <label >Confirm Password:</label>
+                    <input type="password"  formControlName="confirmpassword" class="form-control">
+                </div>
+                <div class="alert alert-danger" *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['confirmpassword'].touched || signupForm.controls['confirmpassword'].dirty)||(signupForm.controls['confirmpassword']!= signupForm.controls['password'])">
+                    try again!
+                </div>
+                <button class="btn btn-success">Sign Up</button>
+            </form>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+</div>
+</div>

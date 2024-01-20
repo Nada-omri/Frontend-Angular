@@ -1,0 +1,13 @@
+#cxx{
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: -10%;
+}
+h1{
+    text-align: center;
+}
+p{
+    font-size: 1.5rem;
+    font-weight: 200;
+}

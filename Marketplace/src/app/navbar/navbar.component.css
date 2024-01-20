@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+.spacer{
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+    gap:4rem;
+}
+.logo{
+   font-family: 'Oswald', sans-serif;
+   font-size: 2rem;
+}
+ #c{
+    background-color: #44bcde;
+ } 
+ .nav-item {
+   font-family: 'Oswald', sans-serif;
+   font-size: 1.3rem;
+ }
+ .c{
+   font-family: 'Oswald', sans-serif;
+   font-size: 1.3rem;
+ } 
+ .clas{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+ .i{
+  font-size: 9rem !important;
+  font-weight: bolder;
+
+ }
+ .material-icons.md-48 { font-size: 80px;
+   }

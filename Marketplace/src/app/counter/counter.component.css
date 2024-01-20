@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+.client-count-wrp {
+    padding: 2rem;
+    height: 40%;
+   
+}
+.client{
+    background-image: url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');
+    height: 40vh;
+    opacity: 0.9;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.titx{
+    text-align: center;
+    margin-top: 1rem;
+    color: aliceblue;
+    font-size: 3rem;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+.number{
+    font-size: 5rem;
+    font-weight: bold;
+    color: aliceblue;
+    text-align: center;
+}
+.client-count-wrp-inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 70px;
+    line-height: 65px;
+}
+
+.cards:first-child h4 {
+    color: #fd7e14;
+    font-size: 3rem;
+}
+
+.cards:last-child h4 {
+    color: #20c997;
+    font-size: 3rem;
+}
+
+.cards:nth-child(2) h4 {
+    color: #6610f2;
+   
+    font-size: 3rem;
+}
+
+.cards:nth-child(3) h4 {
+    color: #20c997;
+    font-size: 3rem;
+}
+
+.cards p {
+
+    font-size: 20px;
+    font-size: 2rem;
+}
+
+@media (max-width:991px) {
+    .mt-100 {
+        margin-top: 30px !important;
+    }
+    .client-count-wrp {
+        padding: 40px 0;
+    }
+    .client-count-wrp-inner {
+        flex-direction: column;
+    }
+    .cards h4 {
+        font-size: 50px;
+        line-height: 40px;
+    }
+    .cards {
+        margin: 20px 0;
+    }
+    .client-count-wrp {
+        padding: 25px 0;
+        margin: 0 25px;
+    }
+    /****/
+}

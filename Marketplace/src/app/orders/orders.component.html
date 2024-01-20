@@ -1,0 +1,83 @@
+<table class="table table-striped">
+  <tbody>
+      <tr *ngFor="let order of orders; let i = index">
+          <td colspan="7">
+              <!-- Collapsible section header -->
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Id</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Total</th>
+                  </tr>
+              </thead>
+                  <tbody>
+                      <!-- Collapsible section content -->
+                      <tr>
+                          <td>
+                              <mat-icon (click)="toggleTag1(i)">keyboard_arrow_down</mat-icon>
+                          </td>
+                          <td>{{ order.buyer!.id }}</td>
+                          <td>{{ order.date | date }}</td>
+                          <td>{{ order.status }}</td>
+                          <td>{{ order.totalAmount }}</td>
+                      </tr>
+                  </tbody>
+              </table>
+              <!-- Nested loop for seller orders -->
+              <table *ngIf="showMe1 === i" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th></th>
+                      
+                      <th scope="col">Date</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Total</th>
+                      <th scope="col">Chat</th>
+                  </tr>
+              </thead>
+                  <tbody>
+                      <!-- Nested loop for seller order details -->
+                      <tr *ngFor="let sellerOrder of order.sellerOrders; let j = index">
+                          <td>
+                              <mat-icon (click)="toggleTag2(i, j)">keyboard_arrow_down</mat-icon>
+                          </td>
+                          <td>{{ sellerOrder.date | date }}</td>
+                          <td>{{ sellerOrder.status }}</td>
+                          <td>{{ sellerOrder.totalAmount }}</td>
+                          <td [routerLink]="['/chat', sellerOrder.id]"><mat-icon>chat</mat-icon></td>
+                      </tr>
+                      <!-- Nested loop for order items -->
+                      <tr *ngFor="let sellerOrder of order.sellerOrders; let j = index">
+                          <td colspan="6">
+                              <table class="table table-striped" *ngIf="showMe2 === i + '-' + j">
+                                <thead>
+                                  <tr>
+                                      <th scope="col">Product</th>
+                                      <th scope="col">Quantity</th>
+                                      <th scope="col">Unit Price</th>
+                                      <th scope="col">Total Price</th>
+                                      <th scope="col">Rating</th>
+                                  </tr>
+                              </thead>
+                                  <tbody>
+                                      <tr *ngFor="let orderItem of sellerOrder.orderItems">
+                                          <td>{{ orderItem.product!.name }}</td>
+                                          <td>{{ orderItem.quantity }}</td>
+                                          <td>{{ orderItem.product!.price }}</td>
+                                          <td>{{ orderItem.product!.price!  *orderItem.quantity! }}</td>
+
+                                          <td>{{ orderItem.product!.rating }}</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </td>
+      </tr>
+  </tbody>
+</table>

@@ -1,0 +1,42 @@
+<div *ngIf="orderItems && orderItems.length >0" class="container">
+  <ul>
+      <li *ngFor="let cartItem of orderItems">
+          <div>
+             <img [src]="Url+cartItem.product?.image" height="240" width="300" >
+          </div>
+          <div>
+              <a routerLink="/product/{{cartItem.product?.id}}">
+                  {{cartItem.product?.name}}
+              </a>
+          </div>
+          <div> 
+            <input type="number" [value]="cartItem.quantity" (change)="changeQuantity(cartItem,$event)" style="width: 30px;">
+        </div>
+
+          <div>
+            {{cartItem.product?.price| currency}}
+        </div>
+
+        <div>
+            {{cartItem.product?.price! * cartItem.quantity! | currency}}
+        </div>
+          <div>
+              <button class="remove-button" (click)="removeFromCart(cartItem)"  >
+                  Remove
+              </button>
+              <button class="remove-button" (click)="addOrder()"  >
+                Add Order
+            </button>
+          </div>
+      </li>
+  </ul>
+
+  <div class="checkout" >
+      <div>
+          <div class="total-price"  >
+            {{totalPrice()|currency}} 
+      </div>
+  </div>
+</div>
+
+  

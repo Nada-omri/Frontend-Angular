@@ -1,0 +1,60 @@
+
+
+li{
+    list-style:none;
+    font-size: 1.35rem;
+    color: #ffff;
+  }
+.container{
+    display: flex;
+    justify-content: space-around;
+    height: 70%;
+    
+  }
+  #a{
+    text-decoration: none;
+    color: aliceblue;
+  }
+  #a:hover{
+    color: #6EC1E4;
+  }
+h2{
+    text-align: center;
+    color: aliceblue;
+  }
+.container1{
+    display: flex;
+    justify-content: center;
+    gap: 0.2rem;
+}
+.titxx{
+    color:aliceblue;
+  font-weight: bold;
+  text-align: center;
+
+}
+#ii{
+    width: 5%;
+    height: 20%;
+}
+.tout{
+    background-color:#0a3c4a;
+    height: 40%;
+}
+li:hover {
+    color: #6EC1E4;
+    
+  }
+  #im:hover{
+    background-color: #6EC1E4;
+  }
+  h2:hover{
+    color: #6EC1E4;
+
+  }
+  hr{
+    color: aliceblue;
+   height: 0.1rem;
+   background-color: aliceblue;
+   border-color: aliceblue;
+  }

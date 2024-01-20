@@ -1,0 +1,32 @@
+.parent{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+#im{
+    width: 15vw;
+    height: 31vh;
+    border-radius: 2rem;
+    align-items: center;
+    margin-left: 4%;
+    margin: 9%;
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Oswald', sans-serif;
+    color: #54595F;
+}
+h2{
+    margin-top: -6%;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #54595F;
+}
+.child{
+    border-radius: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color:#f8f9fa3c ;
+    width: 20vw;
+    height: 40vh;
+}

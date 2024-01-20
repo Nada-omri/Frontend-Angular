@@ -1,0 +1,168 @@
+.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+.card{
+    width: 60vw;
+}
+
+.containx{
+    height: 22.5rem;
+    width: 20rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: #212529;
+    text-decoration: none;
+
+}
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 50%;
+    border: solid #0a3c4a;
+    border-right: none;
+    margin-left: 20%;
+    padding: 5px;
+    height: 30%;
+    margin-top: 8%;
+    border-radius: 2px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  li{
+    text-decoration: underline;
+  }
+  .searchTerm:focus{
+    color: #0a3c4a;
+  }
+  
+  .searchButton {
+    height: 29%;
+    margin-top: 7.8%;
+    margin-bottom: 8%;
+    width: 40px;
+    height: 36px;
+    border: 1px solid #0a3c4a;
+    background: #0a3c4a;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+#title{
+    color: #0a3c4a;
+}
+#productName{
+    color: #19718a;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2%;
+
+}
+.containx:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.content{
+    padding: .5rem 1rem;
+    position: relative;
+}
+
+.favorite{
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: 1.2rem;
+}
+
+.favorite.not{
+    color: grey;
+}
+
+.stars{
+    margin-bottom: .2rem;
+}
+
+.product-item-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.origins{
+    flex: 9;
+}
+
+.origins span{
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    display: inline-block;
+    font-size: .7rem;
+    color: grey;
+    margin-right: .3rem;
+}
+
+.cook-time{
+    font-size: .8rem;
+    flex: 3;
+    text-align: right;
+}
+
+.price{
+    color:#414141;
+    margin-top: .7rem;
+}
+.icon-control {
+    margin-top: 5px;
+    float: right;
+    font-size: 80%;
+}
+
+
+
+.btn-light {
+    background-color: #fff;
+    border-color: #e4e4e4;
+}
+
+.list-menu {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+.list-menu a {
+    color: #343a40;
+}
+
+.card-product-grid .info-wrap {
+    overflow: hidden;
+    padding: 18px 20px;
+}
+
+[class*='card-product'] a.title {
+    color: #212529;
+    display: block;
+    
+}
+.title{
+    font-size: 1rem;
+}
+.cont{
+    display: flex;
+
+}

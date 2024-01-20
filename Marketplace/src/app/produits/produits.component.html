@@ -1,0 +1,123 @@
+<app-spinner></app-spinner>
+<div class="container" [ngStyle]="{ 'display': showConfirmationSection ? 'none' : 'block' }">
+    <div class="row">
+      <div class="col-lg-7">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Brand</th>
+              <th>Description</th>
+              <th>Price</th> 
+              <th>Quantity available</th>
+              <th>Image</th>
+              <th>
+                <button class="btn btn-outline-primary" (click)="operation='add';initProduit"> ADD</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let produit of produits">
+              <td>{{produit.name}}</td>
+              <td>{{produit.category?.name}}</td>
+              <td>{{produit.brand?.name}}</td>
+             <td>{{produit.description}}</td> 
+             <td>{{produit.price}}</td>
+              <td>{{produit.quantity}}</td>
+              <td>
+                <img *ngIf="produit.image" [src]="Url + produit.image" height="75" width="75">
+                <img *ngIf="!produit.image" src="../../assets/images/product/imageProduit.png" height="75" width="75">
+              </td>
+              <td id="bttns"> 
+                <button class="btn btn-outline-primary" (click)="operation='edit'; selectedProduit=produit;"> EDIT</button>
+                <button class="btn btn-outline-danger" (click)="operation='delete'; selectedProduit=produit;openConfirmationDialog()"> DELETE</button>
+               
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-5">
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            {{operation =='add'?'Add Product':
+            operation =='edit'?'Update Product':
+            operation =='delete'?'delete':''
+            }}
+          </div>
+          <div class="card-body">
+            <div *ngIf="operation=='add' ||operation =='edit'"></div>
+            <div class="container" style="margin-top: 20px;">
+              
+                <div class="panel-body">        
+                  <strong>Select files from your computer</strong>
+                 <hr>
+            <form [formGroup]="produitForm" enctype="multipart/form-data" >
+              <div class="form-group">
+             <label > <strong>Image :</strong></label>  <br>
+                   <input class="file-upload" type="file" (change)="onSelectFile($event)" />
+             <img [src]="imgURL" height="200" *ngIf="imgURL"> 
+
+              </div>
+          
+              <div class="form-group">
+                <label> <strong>Name :</strong></label>
+                <input type="text" formControlName="name" class="form-control" [(ngModel)]="selectedProduit.name">
+              </div>
+              <div class="alert alert-danger" *ngIf="produitForm.controls['name'].invalid && (produitForm.controls['name'].touched || produitForm.controls['name'].dirty)">
+                Please provide a valid name.
+              </div>
+              <div class="form-group">
+                <label><strong>Description:</strong></label>
+                <input type="text" formControlName="description" class="form-control" [(ngModel)]="selectedProduit.description">
+              </div>
+              <div class="form-group">
+                <label><strong>Brand:</strong></label>
+                <select name="brandId" formControlName="brandId">
+                  <option *ngFor="let brand of brands" [value]="brand.id">{{ brand.name }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label> <strong>price By product</strong></label>
+                <input type="number" formControlName="price" class="form-control" [(ngModel)]="selectedProduit.price">
+              </div>
+              <div class="form-group">
+                <label ><strong>Choose a category: </strong></label> <br>
+                <select name="categoryId" formControlName="categoryId">
+                  <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label><strong>Quantity:</strong></label> <br>
+                <select name="quantity" formControlName="quantity" class="form-control" [(ngModel)]="selectedProduit.quantity">
+
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <br> 
+              <button class="btn btn-success" [disabled]="produitForm.pristine || produitForm.invalid" (click)="operation=='add' ? addData(): updateProduit()">
+              ajouter
+              </button>
+            </form>
+          </div>
+         <div *ngIf="operation=='delete'">
+  <p class="card-title">
+    Réference: {{ selectedProduit.name }}
+  </p>
+  <button class="btn btn-danger" >Delete</button>
+</div>
+
+          
+          <div class="card-footer"></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  

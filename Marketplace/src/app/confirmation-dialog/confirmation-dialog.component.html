@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Confirmation</h1>
+<div mat-dialog-content style="width: 500px;height: 130px;" >
+  <p>Are you sure to delete?</p>
+  <p class="card-title">
+    Product name: {{ selectedProduit.name }}
+  </p>
+</div>
+<div mat-dialog-actions id="cxx">
+  <button class="btn btn-success" [mat-dialog-close]="false">Cancel</button>
+  <button class="btn btn-danger" [mat-dialog-close]="true" mat-dialog-close="true">Confirm</button>
+</div>
+

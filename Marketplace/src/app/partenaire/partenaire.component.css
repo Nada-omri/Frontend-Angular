@@ -1,0 +1,31 @@
+ul{
+    display: flex;
+    flex-direction: row;
+}
+li{
+    list-style: none;
+}
+#imxx{
+    height: 10vh;
+   
+}
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  .part {
+    display: flex;
+    animation: marquee-scroll infinite linear;
+  }
+  
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
